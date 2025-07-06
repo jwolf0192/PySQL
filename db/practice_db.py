@@ -8,6 +8,7 @@ query_prefix_commands = ('select', 'show', 'pragma')
 #manipulation prefix-commands list
 manipulate_prefix_commands = ('insert', 'create', 'update', 'delete', 'drop')
 
+#this function checks the prefix of the entered statement against the 'Read'/'write lists.
 def query_check(sql: str) -> str:
     prefix = sql.lstrip().split()[0].lower()
     if prefix in query_prefix_commands:
