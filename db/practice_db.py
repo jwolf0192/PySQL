@@ -6,7 +6,7 @@ db = sqlite3.connect('myPratice.db')
 #query prefix-commands list
 query_prefix_commands = ('select', 'show', 'pragma')
 #manipulation prefix-commands list
-manipulate_prefix_commands = ('insert', 'create', 'update', 'delete', 'drop')
+manipulate_prefix_commands = ('alter', 'insert', 'create', 'update', 'delete', 'drop')
 
 #this function checks the prefix of the entered statement against the 'Read'/'write lists.
 def query_check(sql: str) -> str:
