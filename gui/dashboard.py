@@ -16,7 +16,7 @@ root = tk.Tk()
 #create root level window
 root.title('TK DB')
 root.config(bg='lightblue')
-root.geometry('250x250')
+root.geometry('450x250')
 
 #entry widget to enter SQL statements.
 query_entry = tk.Entry(root, width=20)
