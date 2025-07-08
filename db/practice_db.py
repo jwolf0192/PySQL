@@ -1,10 +1,15 @@
-import sqlite3
+import mariadb
 
 #create db connection
-db = sqlite3.connect('myPratice.db')
+db = mariadb.connect(
+    host='localhost',
+    user='pysql_user',
+    password='nA*s098gE',
+    database='pysql_db'
+)
 
 #query prefix-commands list
-query_prefix_commands = ('select', 'show', 'pragma')
+query_prefix_commands = ('select', 'show', 'describe')
 #manipulation prefix-commands list
 manipulate_prefix_commands = ('alter', 'insert', 'create', 'update', 'delete', 'drop')
 
