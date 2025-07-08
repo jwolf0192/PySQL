@@ -10,13 +10,16 @@ manipulate_prefix_commands = ('alter', 'insert', 'create', 'update', 'delete', '
 
 #this function checks the prefix of the entered statement against the 'Read'/'write lists.
 def query_check(sql: str) -> str:
-    prefix = sql.lstrip().split()[0].lower()
+    parts = sql.lstrip().split()
+    if not parts:
+        return "Unknown ..."
+    prefix = parts[0].lower()
     if prefix in query_prefix_commands:
         return 'Read'
     elif prefix in manipulate_prefix_commands:
         return 'Write'
     else:
-        return "Unkown..."
+        return "Unkown ..."
 
 def get_data(sql: str) ->str:
     #initialize DB
