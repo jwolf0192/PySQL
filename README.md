@@ -1,2 +1,2 @@
 # PySQL
-A Tkinter GuI app for running SQL queries on a local SQLite3 database.
+A Python-Tkinter GuI app for running SQL queries on a local MariaDB database.
