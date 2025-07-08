@@ -5,8 +5,13 @@ from db.practice_db import get_data
 def sql_statement():
     user_query = query_entry.get('1.0', tk.END).strip()
     result = get_data(user_query)
-    query_view.delete('1.0', tk.END)
+
+    #query_view.delete('1.0', tk.END)
     query_view.insert(tk.END, result)
+
+    statement_tag = (f'\n***End of Query***\n')
+    query_view.insert(tk.END, statement_tag)
+    
 
 #clear query_entry scrolledtext widget
 def clear_entry():
