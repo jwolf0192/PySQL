@@ -2,16 +2,22 @@ import tkinter as tk
 from tkinter import scrolledtext
 from db.practice_db import get_data
 
+
+
 def sql_statement():
     user_query = query_entry.get('1.0', tk.END).strip()
     result = get_data(user_query)
 
-    #query_view.delete('1.0', tk.END)
-    query_view.insert(tk.END, result)
+    if user_query.endswith(';'): #check for semicolon at end of edxpression.
+        query_view.insert(tk.END, result) #display query if above semicolon is true.
+        statement_tag = (f'\n***End of Query***\n')
+        query_view.insert(tk.END, statement_tag)
+    else:
+        query_view.insert(tk.END, '')
 
-    statement_tag = (f'\n***End of Query***\n')
-    query_view.insert(tk.END, statement_tag)
-    
+#execute sql_statement() function:
+def on_enter(event):
+    sql_statement()
 
 #clear query_entry scrolledtext widget
 def clear_entry():
@@ -31,8 +37,10 @@ root.geometry('650x750')
 
 #scrolledtext widget to enter SQL statements.
 query_entry = scrolledtext.ScrolledText(root, width=20)
+query_entry.bind('<Return>', on_enter)
 query_entry.config(background='black', fg='white', insertbackground='white')
-query_entry.pack(side='top', fill='x', padx='5', pady='5')
+
+query_entry.pack(side='top', fill='x', padx='5', pady=5)
 
 button_frame = tk.Frame(root, bg='lightblue')
 button_frame.pack(side='top', pady=5)
@@ -48,7 +56,7 @@ close.pack(side='left')
 
 #label to display query
 query_frame = tk.Frame(root, bg='lightblue')
-query_frame.pack(side='top', pady=5)
+query_frame.pack(side='top')
 
 query_view = scrolledtext.ScrolledText(root)
 query_view.config(background='black', fg='white', insertbackground='white')
