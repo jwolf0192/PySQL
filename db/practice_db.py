@@ -9,7 +9,7 @@ db = mariadb.connect(
 )
 
 #query prefix-commands list
-query_prefix_commands = ('select', 'show', 'describe')
+query_prefix_commands = ('select', 'show', 'describe', 'use')
 #manipulation prefix-commands list
 manipulate_prefix_commands = ('alter', 'insert', 'create', 'update', 'delete', 'drop')
 
