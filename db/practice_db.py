@@ -1,4 +1,5 @@
 import mariadb
+from decimal import Decimal
 
 #create db connection
 db = mariadb.connect(
@@ -35,7 +36,7 @@ def get_data(sql: str) ->str:
         cursor.execute(sql)#runs user's sql statement entered into the entry() widget
         if action == 'Read':
             rows=cursor.fetchall()
-            return '\n'.join(str(row)for row in rows) or "No data returned."
+            return '\n'.join(str(tuple(float(val) if isinstance(val, Decimal) else val for val in row)) for row in rows) or "No data returned."
         elif action == 'Write':
             db.commit()
             return "Query executed successfully!"

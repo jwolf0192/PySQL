@@ -18,7 +18,9 @@ def launch_app():
 #Function to handle Enter key press events
 def on_enter(event):
     cursor = query_entry.get('1.0', tk.END).strip().lower()#get current text in query_entry widget and convert to lowercase.
-    if cursor in ['clear', 'delete']:
+    if cursor in ['clear', 'delete', 'exit']:
+        if cursor == 'exit':
+            close_app()    
         query_view.delete('1.0', tk.END)#clear query_view widget if user types 'clear' or 'delete'.
         query_entry.delete('1.0', tk.END)#clear query_entry widget.
     launch_app()
