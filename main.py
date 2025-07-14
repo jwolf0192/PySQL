@@ -1,8 +1,4 @@
-from db.practice_db import close_db_conn
-from gui.dashboard import sql_statement
-
-def main() ->None:
-    sql_statement()#Need to rename this function to something more appropriate.
+from gui.dashboard import launch_app
 
 if __name__ == '__main__':
-    main()
+    launch_app()

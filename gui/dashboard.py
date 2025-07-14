@@ -30,8 +30,7 @@ def clear_entry():
 #Function to close the application.
 def close_app():
     root.quit()
-    close_db_conn()
-
+    
 #create root window
 root = tk.Tk()
 
